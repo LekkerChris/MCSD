@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<head>
+    <script>
+        window.onload = function () {
+            /**
+             * Removed for the sake of practice:
+             */
+            // var element = document.getElementById("innerDiv");
+            // alert(element.innerHTML);
+            // document.removeChild(element);
+            // var afterRemove = document.getElementById("innerDiv");
+            // alert(afterRemove);
+
+            // var outerDiv = document.getElementById("outerDiv");
+            // var element = document.createElement("article");
+            // element.innerText = "My new <article> element";
+            // outerDiv.appendChild(element);
+
+            // var innerDiv = document.getElementById("innerDiv");
+            // innerDiv.removeNode(true);
+
+            var element = document.getElementById("outerDiv");
+            alert(element.innerHTML);
+
+            var paragraphs = document.getElementsByTagName("p");
+            alert(paragraphs.length);
+
+            var paragraphs = document.getElementsByClassName("subPara");
+            alert("<p> elements with class subPara: " + paragraphs.length);
+
+            var element = document.getElementById("outerDiv").appendChild(document.createElement("article"));
+            element.innerText = "My new <article> element";
+            
+            var element = document.getElementById("outerDiv").insertBefore(document.createElement("article"), document.getElementById("innerDiv"));
+            element.innerText = "My new <article> element";
+
+            var inner = document.getElementById("innerDiv");
+            var element = inner.insertBefore(document.createElement("article"),inner.firstChild);
+            element.innerText = "My new <article> element";
+
+            var innerDiv = document.getElementById("innerDiv");
+            var p = innerDiv.removeChild(innerDiv.querySelector("article"));
+
+            var outerDiv = document.getElementById("outerDiv");
+            var innerDiv = document.getElementById("innerDiv");
+            var newDiv = document.createElement("div");
+            for (var i = 0; i < innerDiv.childNodes.length; i++) {
+                var anchor = newDiv.appendChild(document.createElement("a"));
+                anchor.setAttribute("href", "http://www.bing.ca");
+                anchor.text = innerDiv.childNodes[i].textContent;
+                newDiv.appendChild(document.createElement("br"));
+            }
+            /**
+             * NOTE: In the book, innerDiv.replaceNode(newDiv); is used, although 'replaceNode' is not a standard function, and will not work.
+             * This is a work around.
+             */
+            outerDiv.replaceChild(newDiv, innerDiv);
+
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.moveTo(10, 10);
+            // ctxt.lineTo(225, 350);
+            // ctxt.lineTo(300, 10);
+            // ctxt.lineTo(400, 350);
+            // ctxt.lineWidth = 5;
+            // ctxt.strokeStyle = '#0f0';
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.arc(150, 100,75,0,2 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#0f0';
+            // ctxt.stroke();
+
+            // ctxt.moveTo(150, 100);
+            // ctxt.lineTo(151, 101);
+            // ctxt.lineWidth = 5;
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.arc(450, 100, 75, 1.5 * Math.PI, 2 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = 'blue';
+            // ctxt.stroke();
+            
+            // ctxt.moveTo(450, 100);
+            // ctxt.lineTo(451, 101);
+            // ctxt.lineWidth = 5;
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.arc(150, 300, 75, 1 * Math.PI, 1.5 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#0ff';
+            // ctxt.stroke();
+            
+            // ctxt.moveTo(150, 300);
+            // ctxt.lineTo(151, 301);
+            // ctxt.lineWidth = 5;
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.arc(450, 300, 75, .5 * Math.PI, 1 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#f00';
+            // ctxt.stroke();
+            
+            // ctxt.moveTo(450, 300);
+            // ctxt.lineTo(451, 301);
+            // ctxt.lineWidth = 5;
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.moveTo(10,380);
+            // ctxt.quadraticCurveTo(300,-250,580,380);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#f00';
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.moveTo(125, 20);
+            // ctxt.bezierCurveTo(0, 200, 300, 300, 50, 400);
+            // ctxt.lineWidth = 5;
+            // ctxt.strokeStyle = '#f00';
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.arc(300, 200, 75, 1.75 * Math.PI, 1.25 * Math.PI, false);
+            // ctxt.lineTo(150, 125);
+            // ctxt.quadraticCurveTo(300, 0, 450, 125);
+            // ctxt.lineTo(353, 144);
+            // ctxt.strokeStyle = "blue";
+            // ctxt.lineCap = "round";
+            // ctxt.lineWidth = 10;
+            // ctxt.fillStyle = "Green";
+            // ctxt.fill();
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.rect(300, 200, 150, 75);
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // var x, y;
+            // x = 150;
+            // y = 75;
+            // ctxt.rect(300-(x/2), 200-(y/2), x, y);
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.fillStyle = "blue";
+            // ctxt.fillRect(300-(x / 2), 200-(y / 2), x, y);
+
+            // ctxt.beginPath();
+            // ctxt.lineWidth = 3;
+            // ctxt.rect(150, 150, 200, 125);
+            // var gradient = ctxt.createLinearGradient(150, 150, 200, 125);
+            // gradient.addColorStop(0, "Black");
+            // gradient.addColorStop(0.5, "Gray");
+            // gradient.addColorStop(1,"White");
+            // ctxt.fillStyle = gradient;
+            // ctxt.fill();
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.lineWidth = 3;
+            // ctxt.rect(150, 150, 250, 175);
+            // var gradient = ctxt.createRadialGradient(200, 200,5, 250, 250,100);
+            // gradient.addColorStop(0, "Red");
+            // gradient.addColorStop(.5, "Orange");
+            // gradient.addColorStop(1, "Blue");
+            // ctxt.fillStyle = gradient;
+            // ctxt.fill();
+            // ctxt.stroke();
+
+            // ctxt.beginPath();
+            // ctxt.lineWidth = 3;
+            // ctxt.rect(150, 150, 200, 125);
+            // var img = new Image();
+            // img.src = "texture.png";
+            // img.onload = function () {
+            //     var pat = ctxt.createPattern(img, "repeat");
+            //     ctxt.fillStyle = pat;
+            //     ctxt.fill();
+            //     ctxt.stroke();
+            // }
+
+            // ctxt.beginPath();
+            // var img = new Image();
+            // img.src = "orange.jpg";
+            // img.onload = function () {
+            //     ctxt.drawImage(img, 0, 0, img.width * .5, img.height * .5);
+            //     ctxt.stroke();
+            // }
+
+            ctxt.strokeText("1. Text with default font", 100, 100);
+
+            ctxt.font = "24px arial";
+            ctxt.strokeText("2. Text with altered font", 100, 125);
+
+            ctxt.font = "24px arial";
+            ctxt.strokeStyle = "Red";
+            ctxt.strokeText("3. Text with altered colored font", 100, 160);
+
+            ctxt.font = "24px arial";
+            ctxt.fillStyle = "Red";
+            ctxt.fillText("4. Text with altered colored font", 100, 185);
+
+            ctxt.font = "24px arial";
+            ctxt.textAlign = "center";
+            ctxt.fillStyle = "Red";
+            ctxt.fillText("5. Text with altered colored font Centered.", drawingSurface.width / 2,
+            drawingSurface.height / 2);
+        }
+        
+        function Red(evt) {
+            var circle = evt.target;
+            circle.setAttribute("style", "fill: red");
+        }
+        function Green(evt) {
+            var circle = evt.target;
+            circle.setAttribute("style", "fill: green");
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outerDiv">
+        <p class='mainPara'>Main Paragraph</p>
+        <ul>
+            <li>First List Item</li>
+            <li>Second List Item</li>
+            <li>Third List Item</li>
+            <li>Fourth List Item</li>
+        </ul>
+        <div id="innerDiv">
+            <p class='subPara' id='P1'>Paragraph 1</p>
+            <p class='subPara' id='P2'>Paragraph 2</p>
+            <p class='subPara' id='P3'>Paragraph 3</p>
+            <p class='subPara' id='P4'>Paragraph 4</p>
+        </div>
+        <table>
+            <tr>
+                <td>Row 1
+                    <video controls height="400" width="600" poster="picture.jpg">
+                        <source src="samplevideo.mp4" type="audio/mp4" />
+                        <object>
+                <p>Video is not supported by this browser.</p>
+            </object>
+                    </video>
+                </td>
+            </tr>
+            <tr>
+                <td>Row 2
+                    <audio controls>
+                        <source src="sample.mp3" type="audio/mp3" />
+                        <p>Your browser does not support HTML5 audio.</p>
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>Row 3
+                    <canvas id="drawingSurface" width="600" height="400">
+                        Your browser does not support HTML5.
+                    </canvas>
+                </td>
+            </tr>
+            <tr>
+                <td>Row 4
+                    <svg>
+                        <polygon points="10,15 30,35 10,85 100,85, 70,35,100,15" fill="purple" />
+                        <polyline points="10,150 30,170 50,132 62,196 78,165 96,170" style="stroke:orange; fill:none; stroke-width:5;" />
+                        <line x1="150" y1="100" x2="150" y2="150" style="stroke:blue;stroke-width:3" />
+                        <ellipse cx="250" cy="150" rx="30" ry="55" fill="green" />
+                        <text x="10" y="10" style="stroke: black;stroke-width:1;">
+                            Examples of SVG Shapes and Text</text>
+                        <image href="orange.jpg" width="250" height="100" />
+                    </svg>
+                </td>
+            </tr>
+            <tr>
+                <td>Row 5
+                </td>
+            </tr>
+        </table>
+        <input type="text" /><input type="submit" value="Submit" />
+    </div>
+</body>

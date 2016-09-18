@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>replaceNode</title>
+</head>
+<body>
+  <ul id="oList">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+  </ul>
+  <input type="button" value="Replace List" onclick="fnReplace()">
+  <script>
+    function fnReplace() {
+      var oList = document.getElementById('oList');
+      var sPreserve = oList.innerHTML;
+      var oNewNode = document.createElement("ol");
+
+      oList.replaceNode(oNewNode);
+      oNewNode.innerHTML = sPreserve;
+    }
+  </script>
+</body>
+</html>
