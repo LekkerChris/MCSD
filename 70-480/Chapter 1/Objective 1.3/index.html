@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            html,
+            body {
+                height: 100%;
+                width: 100%;
+            }
+            
+            img {
+                height: 150px;
+                width: 225px;
+            }
+            
+            #orange1 {
+                height: 150px;
+                width: 225px;
+            }
+            
+            .scale {
+                transform: scale(1.5);
+            }
+            
+            .rota {
+                transform: rotate(90deg);
+            }
+            
+            .trans {
+                transform: translate(50px, 0px);
+            }
+            
+            .skew {
+                transform: skew(10deg, 10deg);
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var top = document.getElementById("topText");
+                var left = document.getElementById("leftText");
+                var pos = document.getElementById("positioning");
+
+                document.getElementById("btnPosition").onclick = function () {
+                    var img = document.getElementById("orange2");
+                    img.style.position = pos.value;
+                    img.style.left = left.value + "px";
+                    img.style.top = top.value + "px";
+                };
+
+                document.getElementById("orange1").onclick = function () {
+                    this.classList.add("trans");
+                    this.classList.add("rota");
+                };
+
+                document.getElementById("btnHideAnElement").onclick = function () {
+                    if (document.getElementById("orange2").style.display == 'inline') {
+                        document.getElementById("orange2").style.display = 'none';
+                    }
+                    else {
+                        document.getElementById("orange2").style.display = 'inline';
+                    }
+                };
+            }
+        </script>
+    </head>
+
+    <body>
+        <table style="width: 100%; height: 100%; border: 1px solid black;">
+            <tr>
+                <td style="vertical-align: top; width: 80%">
+                    <img id="orange1" src="orange.jpg" style="position:relative" />
+                    <img id="orange2" src="orange.jpg" />
+                </td>
+                <td style="vertical-align: top;">
+                    Left:
+                    <input type="text" id="leftText" /><br/> Top:
+                    <input type="text" id="topText" /><br/> Position:
+                    <select id="positioning">
+                        <option>relative</option>
+                        <option>absolute</option>
+                    </select><br/>
+                    <input type="button" id="btnPosition" value="Update" />
+                    <button type="button" id="btnHideAnElement" >Show/Hide Element</button>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
